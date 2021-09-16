@@ -1,4 +1,8 @@
 <?php
 require_once 'save.php';
-save::saveFile();
+require_once 'remove.php';
+//save::saveFile();
+remove::start();
+
+
 die('success');
