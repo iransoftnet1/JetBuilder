@@ -31,6 +31,8 @@ class Command implements BehaviorInterface
 
     static function terminalEndText($resultInstall): string
     {
+        if (config('showResultCommand'))
         return  $resultInstall . "\n" .'build success';
+        return 'build success';
     }
 }

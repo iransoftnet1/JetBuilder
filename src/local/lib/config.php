@@ -14,5 +14,6 @@ return [
             'projectPath' => 'F:\bornafit\BornafitCrmAdminDashbord',
             'urlServer' => 'http://localhost/server/index.php'
         ]
-    ]
+    ],
+    'showResultCommand'=>false
 ];

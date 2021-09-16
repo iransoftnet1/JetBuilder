@@ -8,7 +8,6 @@ $behaviors = [
     Archive::class,
     Upload::class
 ];
-echo "<pre>";
 foreach ($behaviors as $item) {
     echo "<p class='panding'>" . $item::terminalStartText() . "</p>";
     flush();
