@@ -1,6 +1,6 @@
 <?php
 require_once 'zip.php';
-require_once 'upload.php';
+require_once 'Upload.php';
 header( 'Content-type: text/html; charset=utf-8' );
 
 echo '----BEGIN...<br />';

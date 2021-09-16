@@ -1,19 +1,20 @@
 <?php
 
-class convertZip
+class Archive implements BehaviorInterface
 {
-    public function __construct()
+    public static function install()
     {
+        return self::zipCompress(config('fullDirProductionPath'),config('fullProductionZipFile'));
     }
 
-    public function convert($path)
+    private static function zipCompress($path,$zipFileName)
     {
         // Get real path for our folder
         $rootPath = realpath($path);
 
         // Initialize archive object
         $zip = new ZipArchive();
-        $zip->open('file.zip', ZipArchive::CREATE | ZipArchive::OVERWRITE);
+        $zip->open($zipFileName, ZipArchive::CREATE | ZipArchive::OVERWRITE);
 
         // Create recursive directory iterator
         /** @var SplFileInfo[] $files */
@@ -35,6 +36,17 @@ class convertZip
         }
 
         // Zip archive will be created only after closing object
-        $zip->close();
+       return $zip->close();
+    }
+
+
+    static function terminalStartText(): string
+    {
+        return 'compress zip...';
+    }
+
+    static function terminalEndText($resultInstall): string
+    {
+        return 'zip file created';
     }
 }
