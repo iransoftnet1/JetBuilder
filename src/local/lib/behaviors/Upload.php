@@ -31,6 +31,6 @@ class Upload implements BehaviorInterface
 
     static function terminalEndText($resultInstall): string
     {
-        return 'success upload host' . "\n" . $resultInstall;
+        return 'success upload host';
     }
 }

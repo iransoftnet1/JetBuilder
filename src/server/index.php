@@ -1,10 +1,20 @@
 <?php
-require_once 'save.php';
-require_once 'remove.php';
-require_once 'zip.php';
-save::saveFile();
-remove::start();
-zip::extract(__DIR__ . '/file.zip');
+header('Content-type: text/html; charset=utf-8');
+require_once 'lib/loader.php';
+//respectively
+$behaviors = [
+    Receiver::class,
+    Clean::class,
+    Archive::class
+];
+foreach ($behaviors as $item) {
+    echo "<p class='panding'>" . $item::terminalStartText() . "</p>";
+    flush();
+    ob_flush();
+    echo "<p class='success'>" . $item::terminalEndText($item::install()) . "</p>";
+    echo "\n";
 
+    flush();
+    ob_flush();
 
-die('success');
+}
